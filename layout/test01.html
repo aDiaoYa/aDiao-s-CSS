@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实现水平垂直居中的方法</title>
+  </head>
+  <style>
+    body {
+      margin: 0;
+    }
+    /* 方法一： */
+    /* .container {
+      width: 400px;
+      height: 400px;
+      background-color: skyblue;
+      position: relative;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    } */
+
+    /* 方法二： */
+    /* .container {
+      width: 400px;
+      height: 400px;
+      background-color: skyblue;
+      position: relative;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    } */
+
+    /* 方法三： */
+    /* .container {
+      width: 400px;
+      height: 400px;
+      background-color: skyblue;
+      position: relative;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -50px 0 0 -50px;
+    } */
+
+    /* 方法四： */
+    /* .container {
+      width: 400px;
+      height: 400px;
+      background-color: skyblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    } */
+
+    /* 方法五： */
+    /* .container {
+      width: 400px;
+      height: 400px;
+      background-color: skyblue;
+      display: flex;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+      margin: auto;
+    } */
+
+    /* 方法六： */
+    .container {
+      width: 400px;
+      height: 400px;
+      background-color: skyblue;
+      display: grid;
+      place-items: center;
+    }
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div class="box"></div>
+    </div>
+  </body>
+</html>

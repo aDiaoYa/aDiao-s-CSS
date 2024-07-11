@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>实现双飞翼布局</title>
+  </head>
+  <!-- 需求：实现双飞翼布局 -->
+  <!-- 双飞翼布局左中右三列布局，渲染顺序中间列书写在前保证提前渲染，左右两列定宽，中间列自适应剩余宽度。 -->
+  <style>
+    /* body {
+      margin: 0;
+    }
+    header,
+    footer {
+      height: 10vh;
+      background-color: palegreen;
+      text-align: center;
+    }
+    .container {
+      height: 80vh;
+    }
+    .left {
+      width: 200px;
+      height: 100%;
+      background-color: pink;
+      float: left;
+      margin-left: -100%;
+    }
+    .right {
+      width: 300px;
+      height: 100%;
+      background-color: wheat;
+      float: left;
+      margin-left: -300px;
+    }
+    .middle {
+      width: 100%;
+      height: 100%;
+      background-color: skyblue;
+      float: left;
+    }
+    .content {
+      margin: 0 300px 0 200px;
+    } */
+    body {
+      margin: 0;
+    }
+    header,
+    footer {
+      height: 10vh;
+      background-color: palegreen;
+      text-align: center;
+    }
+    .container {
+      height: 80vh;
+      display: flex;
+    }
+    .left {
+      width: 200px;
+      height: 100%;
+      background-color: pink;
+    }
+    .right {
+      width: 300px;
+      height: 100%;
+      background-color: wheat;
+    }
+    .middle {
+      width: 100%;
+      height: 100%;
+      background-color: skyblue;
+      flex: 1;
+    }
+  </style>
+  <body>
+    <!-- <header>#header</header>
+    <main class="container">
+      <section class="middle">
+        <div class="content">中</div>
+      </section>
+      <section class="left">左</section>
+      <section class="right">右</section>
+    </main>
+    <footer>#footer</footer> -->
+    <header>#header</header>
+    <main class="container">
+      <section class="left">左</section>
+      <section class="middle">中</section>
+      <section class="right">右</section>
+    </main>
+    <footer>#footer</footer>
+  </body>
+  <!-- 实现思路：左中右三列都设置左浮动；设置中间宽度为100%；设置负边距，左负边距为100%，右负边距为自身宽度；设置中间的子盒子margin值为左右两个侧栏的宽度。 -->
+</html>
