@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTTP 流式输出</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        margin: 0;
+      }
+      .outputBox {
+        font-size: 24px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+      }
+      .preContent {
+        /* 使空白符正常显示 */
+        white-space: pre-wrap;
+        /* 允许在单词内换行 */
+        word-wrap: break-word;
+        max-width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outputBox">
+      <div class="preContent"></div>
+    </div>
+
+    <script>
+      const utf8Decoder = new TextDecoder("utf-8");
+
+      async function getSSEData() {
+        const preContent = document.querySelector(".preContent");
+
+        const startTime = Date.now();
+        const res = await fetch("http://localhost:3000");
+
+        const reader = res.body.getReader();
+        let text = "";
+
+        const processor = async () => {
+          const { done, value } = await reader.read();
+          if (done) {
+            return;
+          }
+          const chunk = utf8Decoder.decode(value, { stream: true });
+          text += chunk;
+          preContent.textContent = text;
+          await processor();
+        };
+        await processor();
+
+        const endTime = Date.now();
+        const cost = endTime - startTime;
+        console.log("Streaming completed in:", cost, "ms");
+      }
+
+      getSSEData();
+    </script>
+  </body>
+</html>
