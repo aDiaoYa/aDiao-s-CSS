@@ -36,8 +36,27 @@
     <div class="outputBox">
       <div class="preContent"></div>
     </div>
-
     <script>
+      // SSE流式输出：需要npm i express
+      const preContent = document.querySelector(".preContent");
+
+      const eventSource = new EventSource("http://localhost:8080/stream");
+      let text = "";
+
+      eventSource.onmessage = (event) => {
+        const message = event.data.replace(/^data: /, ""); // 移除 "data: " 前缀
+        text += message; // 将接收到的字符追加到文本中
+        preContent.textContent = text; // 更新页面内容
+      };
+
+      eventSource.onerror = (error) => {
+        console.error("EventSource failed:", error);
+        eventSource.close();
+      };
+    </script>
+
+    <!-- HTTP 流式输出 -->
+    <!-- <script>
       const utf8Decoder = new TextDecoder("utf-8");
 
       async function getSSEData() {
@@ -67,6 +86,8 @@
       }
 
       getSSEData();
-    </script>
+    </script> -->
+
+    <!-- SSE流式输出 -->
   </body>
 </html>
