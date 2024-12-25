@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>用 flex 布局实现横向/纵向百叶窗</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #f6e7f7;
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+      }
+      /* 横向百叶窗 */
+      /* .container {
+        display: flex;
+        justify-content: center;
+        width: 1000px;
+        overflow-x: hidden;
+      } */
+      /* 纵向百叶窗 */
+      .container {
+        display: flex;
+        flex-direction: column;
+        height: 1000px;
+        overflow-x: hidden;
+      }
+      .box {
+        transition: 0.8s;
+        overflow: hidden;
+      }
+      .box:hover {
+        flex-shrink: 0;
+        flex-grow: 0;
+      }
+      img {
+        width: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box"><img src="../test04/1.gif" alt="" /></div>
+      <div class="box"><img src="../test04/2.gif" alt="" /></div>
+      <div class="box"><img src="../test04/3.gif" alt="" /></div>
+      <div class="box"><img src="../test04/4.gif" alt="" /></div>
+      <div class="box"><img src="../test04/5.gif" alt="" /></div>
+      <div class="box"><img src="../test04/6.gif" alt="" /></div>
+      <div class="box"><img src="../test04/7.gif" alt="" /></div>
+    </div>
+  </body>
+</html>

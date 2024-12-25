@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>七彩泡泡</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        background-image: linear-gradient(
+          to bottom right,
+          #91defe,
+          #99c0f9,
+          #bdb6ec,
+          #d7b3e3,
+          #efb3d5,
+          #f9bccc
+        );
+      }
+      .box {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 500px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .ball {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        position: relative;
+        background: radial-gradient(
+          circle at 77% 30%,
+          white 5px,
+          aqua 8%,
+          rgb(172, 172, 227) 60%,
+          aqua 100%
+        );
+        box-shadow: inset 0 0 20px #fff, inset 10px 0 46px #eaf5fc,
+          inset 88px 0 60px #c2d8fe, inset -20px -60px 100px #fde9ea,
+          inset 0 50px 140px #fde9ea, 0 0 90px #fff;
+
+        animation: float 3.5s ease-in-out infinite;
+      }
+      .box:nth-child(2) {
+        z-index: -999;
+      }
+      .box:nth-child(2) .ball {
+        z-index: -999;
+        width: 100px;
+        height: 100px;
+        left: -80px;
+        top: 35px;
+        opacity: 0.5;
+      }
+      .box:nth-child(3) .ball {
+        width: 20px;
+        height: 20px;
+        left: 80px;
+        top: -80px;
+        opacity: 0.1;
+      }
+      .shadow {
+        position: absolute;
+        width: 150px;
+        height: 40px;
+        top: 70%;
+        border-radius: 50%;
+        background: #b490b27c;
+        animation: expand 4s infinite;
+      }
+      .box:nth-child(2) .shadow {
+        width: 90px;
+        height: 20px;
+        top: 72.5%;
+        left: -75px;
+        opacity: 0.4;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(-10deg);
+        }
+        50% {
+          transform: translateY(-80px) rotate(10deg);
+        }
+      }
+      @keyframes expand {
+        0%,
+        100% {
+          transform: scale(0.5);
+        }
+        50% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="ball"></div>
+        <div class="shadow"></div>
+      </div>
+      <div class="box">
+        <div class="ball"></div>
+        <div class="shadow"></div>
+      </div>
+      <div class="box">
+        <div class="ball"></div>
+        <div class="shadow"></div>
+      </div>
+    </div>
+  </body>
+</html>
