@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>动态搜索框</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: #e94118;
+      }
+      .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #2f3640;
+        height: 40px;
+        border-radius: 40px;
+        padding: 10px;
+      }
+      .container:hover .search {
+        width: 200px;
+        padding: 0 6px;
+      }
+      .contianer:hover .search-btn {
+        background-color: wheat;
+      }
+      .search {
+        border: none;
+        background: none;
+        /* 取消选中搜索框时的外边框 */
+        outline: none;
+        width: 0;
+        padding: 0;
+        transition: 0.4s;
+        line-height: 40px;
+        font-size: 20px;
+        color: wheat;
+      }
+      .search-btn {
+        color: #e94118;
+        float: right;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #2f3640;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.4s;
+      }
+      img {
+        width: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <input type="text" class="search" />
+      <a href="" class="search-btn">
+        <img src="../test06/搜索框.png" alt="" />
+      </a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>鼠标悬停-方向感应名片</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        min-height: 100vh;
+        background-color: rgb(210, 210, 220);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        min-width: 1000px;
+        flex-wrap: wrap;
+        transform-style: preserve-3d;
+        perspective: 900px;
+      }
+      .box {
+        position: relative;
+        width: 250px;
+        height: 350px;
+        transition: 0.5s;
+        overflow: hidden;
+        margin: 30px;
+        transform: rotateY(0deg);
+        transition-delay: 0.1s;
+        border-radius: 5px;
+        border: 5px solid #fff;
+      }
+      .container:hover .box {
+        transform: rotateY(20deg);
+      }
+      .container .box:hover {
+        transform: rotateY(0deg) scale(1.25);
+        box-shadow: 0 25px 40px rgba(0, 0, 0, 0.7);
+        z-index: 1;
+      }
+      /* 鼠标悬停时，其后所有卡片反方向反转20度 */
+      .box:hover ~ .box {
+        transform: rotateY(-20deg);
+      }
+      img {
+        width: 100%;
+      }
+      .content {
+        position: absolute;
+        top: 0;
+        width: 90%;
+        height: 100%;
+        z-index: 999;
+        padding: 15px;
+      }
+      .content h2 {
+        color: rgb(210, 140, 140);
+        transition: 0.5s;
+        font-size: 20px;
+        transform: translateY(-100px);
+      }
+      .box:hover .content h2 {
+        transform: translateY(-15px);
+      }
+      .content p {
+        color: rgb(0, 0, 0);
+        transition: 0.5s;
+        font-size: 14px;
+        transform: translateY(600px);
+        background-color: rgba(255, 255, 255, 0.7);
+      }
+      .box:hover .content p {
+        transform: translateY(220px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="images"><img src="../test05/1.png" alt="" /></div>
+        <div class="content">
+          <h2>ZeenChin</h2>
+          <p>
+            The style in the painting integrates temptation, fantasy and
+            strangeness
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="images"><img src="../test05/2.png" alt="" /></div>
+        <div class="content">
+          <h2>ZeenChin</h2>
+          <p>
+            The style in the painting integrates temptation, fantasy and
+            strangeness
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="images"><img src="../test05/3.png" alt="" /></div>
+        <div class="content">
+          <h2>ZeenChin</h2>
+          <p>
+            The style in the painting integrates temptation, fantasy and
+            strangeness
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="images"><img src="../test05/4.png" alt="" /></div>
+        <div class="content">
+          <h2>ZeenChin</h2>
+          <p>
+            The style in the painting integrates temptation, fantasy and
+            strangeness
+          </p>
+        </div>
+      </div>
+      <div class="box">
+        <div class="images"><img src="../test05/5.png" alt="" /></div>
+        <div class="content">
+          <h2>ZeenChin</h2>
+          <p>
+            The style in the painting integrates temptation, fantasy and
+            strangeness
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
